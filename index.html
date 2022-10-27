@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primeiro C</title>
-    <script src="estudo.js"></script>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Primeiro C</title>
+   <script src="estudo.js"></script>
+   <link rel="stylesheet" href="geral.css">
 </head>
+
 <body>
-    Valor: <input id="valor" type="text"><br>
-    Juros(Mensais): <input id="juros" type="text"><br>
-    Nr. Meses: <input id="meses" type="text"><br>
-    <button onclick="mat()">Enviar</button>
 
-    <br><br><br><br>
-    <span id="resultado">0,00</span><br>
-    Valor 1: <input id="v1" type="text"><br>
-    Valor 2: <input id="v2" type="text"><br>
-    Valor 3: <input id="v3" type="text"><br>
-    <button onclick="soma()">Calcular Soma</button>
-    <button onclick="media()">Calcular Média</button>
-
-    
-    
+   <div id="calculadora">
+      <div id="spTotal">
+         <span id="total">Total: 0,00</span><br>
+      </div>
+      Capital: <input id="valor" type="text"> <br>
+      Juros Mensais: <input id="juros" type="text"> <br>
+      Nr. de Meses: <input id="meses" type="text"> <br>
+      <button onclick="total()">Calcula</button>
+   </div>
+   <div class="spLista">
+      <span id="mes">Meses</span>
+   </div>
 
 
+   <br><br><br>
 
 </body>
+
 </html>
