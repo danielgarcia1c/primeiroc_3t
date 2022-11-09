@@ -5,28 +5,30 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Primeiro C</title>
+   <title>Primeiro C Danizin</title>
    <script src="estudo.js"></script>
    <link rel="stylesheet" href="geral.css">
 </head>
 
 <body>
+   <input type="checkbox"  id="calcFin">
+   <label for="calcFin"></label>
+   <div class="calcFin"></div>
 
    <div id="calculadora">
       <div id="spTotal">
-         <span id="total">Total: 0,00</span><br>
+         <span id="total">0,00</span><br>
       </div>
       Capital: <input id="valor" type="text"> <br>
       Juros Mensais: <input id="juros" type="text"> <br>
       Nr. de Meses: <input id="meses" type="text"> <br>
       <button onclick="total()">Calcula</button>
-   </div>
-   <div class="spLista">
-      <span id="mes">Meses</span>
-   </div>
+      <button onclick="limpar()">Limpar</button>
+      <div class="spLista">
+         <span id="mes"></span>
+      </div>
 
-
-   <br><br><br>
+   </div>
 
 </body>
 
