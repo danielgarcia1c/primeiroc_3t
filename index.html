@@ -1,54 +1,110 @@
-
-function moeda(atual) {
-  return atual.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-}
-
-function total() {
-  let c = document.getElementById("valor").value;
-  let j = document.getElementById("juros").value;
-  let t = document.getElementById("meses").value;
-  let r = moeda;
-
-
-  if (!Number(c)) {
-
-    alert("O capital deve ser numeros.");
-    document.getElementById("valor").value = "";
-    document.getElementById("valor").focus();
-    return;
-  }
-
-  if (!Number(j)) {
-    alert("O juros deve ser numeros.");
-    document.getElementById("juros").value = "";
-    document.getElementById("juros").focus();
-    return;
-  }
-
-  if (!Number(t)) {
-    alert("O meses deve ser numeros.");
-    document.getElementById("meses").value = "";
-    document.getElementById("meses").focus();
-    return;
-  }
-  let mes = "";
-
-  for (let i = 1; i <= t; i++) {
-    r = c * (1 + (j / 100));
-    mes += i + ": " + moeda(r) + "<br>";
-    //document.write("Mês " + i + " valor: " + moeda(r) + "<br>");
-    c = r;
-  }
-  document.getElementById("mes").innerHTML=mes; 
-  document.getElementById("total").innerHTML= moeda(r);
-  //document.write("Resultado: " + moeda(r));
-}
-
-function limpar(){
-  document.getElementById("mes").innerHTML = "";
-  document.getElementById("total").innerHTML="0,00";
-  document.getElementById("valor").value = "";
-  document.getElementById("juros").value = "";
-  document.getElementById("meses").value = "";
-}
-
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="styles/reset.css">
+    
+    <title>Alurabook</title>
+</head>
+<body>
+    <header class="cabeçalho">
+        <div class="container">
+            <input type="checkbox" id="menu" class="container_botao">
+            <label for="menu">
+                <span class="cabeçalho__menu-hamburguer container_imagem"></span>
+            </label>
+            <ul class="lista-menu">
+                <li class="lista-menu__titulo">Categorias</li>
+                <li class="lista-menu__item">
+                    <a href="#" class="lista-menu__link">Programação</a>
+                </li>
+                <li class="lista-menu__item">
+                    <a href="#" class="lista-menu__link">Front-end</a>
+                </li>
+                <li class="lista-menu__item">
+                    <a href="#" class="lista-menu__link">Infraestrutura</a>
+                </li>
+                <li class="lista-menu__item">
+                    <a href="#" class="lista-menu__link">Business</a>
+                </li>
+                <li class="lista-menu__item">
+                    <a href="#" class="lista-menu__link">Design & UX</a>
+                </li>
+            </ul>
+            <img src="img/Logo.svg" alt="" class="container_imagem">
+        </div>
+        <div class="container">
+            <a href="#"><img src="img/Favoritos.svg" alt="Meus favorito" class="container_imagem"></a>
+            <a href="#"><img src="img/Compras.png" alt="Carrinho de compras" class="container_imagem"></a>
+            <a href="#"><img src="img/Usuario.png" alt="Meu perfil" class="container_imagem"></a>
+        </div>
+    </header>
+    <section class="banner">
+        <h2 class="banner_titulo">Já sabe por onde começar?</h2>
+        <p class="banner_texto">Encontre em nossa
+            estante o que precisa para seu desenvolvimento!</p>
+        <input type="search" class="banner_pesquisa" placeholder="Qual será sua próxima leitura?">
+    </section>
+    <section class="carrossel">
+        <h2 class="carrossel_titulo">Novos lançamentos</h2>
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide"><img src="img/ApacheKafka.svg" alt="Livro sobre apache Kafka e blábláblá"></div>
+              <div class="swiper-slide"><img src="img/Javascript.svg" alt=""></div>
+              <div class="swiper-slide"><img src="img/Portugol.svg" alt=""></div>
+              <div class="swiper-slide"><img src="img/Angular.svg" alt=""></div>
+              <div class="swiper-slide"><img src="img/Arquitetura.svg" alt=""></div>
+              
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+          
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          
+            <!-- If we need scrollbar -->
+           <!-- <div class="swiper-scrollbar"></div>-->
+          </div>
+          <div class="card">
+            <div class="card_descricao">
+                <div class="descricao">
+                    <h3 class="descricao_titulo">Talvez você também se interesse por...</h3>
+                    <h2 class="descricao_titulo-livro">Angular 11 e Firebase</h2>
+                    <p class="descricao_texto">Construindo uma aplicação integrada com
+                    a plataforma do Google.</p>
+                </div>
+                <img src="img/Angular2.svg" class="descricao_imagem">
+            </div>
+            <div class="card_botoes">
+                <ul class="botoes">
+                    <li class="botoes_item"><img src="img/Favoritos.svg" alt="Favoritar livro"></li>
+                    <li class="botoes_item"><img src="img/Compras.png" alt="Adicionar no carrinho de compras"></li>
+                </ul>
+                <a href="#" class="botoes_ancora">Saiba Mais</a>
+            </div>
+          </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper', {
+  //speed: 400,
+  spaceBetween: 10,
+  slidesPerView: 3,
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'bullets',
+  },
+});
+</script>
+</body>
+</html>
